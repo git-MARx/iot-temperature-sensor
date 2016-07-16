@@ -1,0 +1,14 @@
+{
+  "sql": "SELECT * FROM 'topic/plantdata'",
+  "ruleDisabled": false,
+  "actions": [{
+      "dynamoDB": {
+        "tableName": "plantSensor",
+        "hashKeyField": "key",
+        "hashKeyValue": "${topic(2)}",
+        "rangeKeyField": "timestamp",
+        "rangeKeyValue": "${timestamp()}",
+        "roleArn": "arn:aws:iam::448408238127:role/iot-actions-role"
+      }
+    }]
+}
